@@ -7,12 +7,17 @@
 @section('content')
   @while(have_posts()) @php(the_post())
     <!-- jumbotron section with podcast title and cover image -->
-    <div class="grid grid-cols-2 gap-6">
-      <div class="border-8 border-black">
-        <h1 class="p-8">A podcast by womxn,<br> for womxn.</h1>
-        <h1 class="p-8">made in berlin.<br>about berlin.</h1>
+    <div class="grid grid-cols-3 lg:grid-cols-2 gap-6">
+      <!-- left column, 50% width on lg screens, 2/3 width on smaller -->
+      <div class="col-span-2 lg:col-span-1 flex flex-col justify-center">
+        <div class="border-8 p-8 border-black">
+          <h1>A podcast by womxn,<br>for womxn.</h1>
+          <h5>Living in a new city is not always easy, but we're proud of what we've accomplished, and we are here to share our stories.</h5>
+        </div>
       </div>
-      <div class="border">
+
+      <!-- right column with simona's picture -->
+      <div>
         <img src="@asset('images/simona-microphone.jpg')" alt="">
       </div>
 
@@ -20,15 +25,16 @@
     <!-- listen section with links to spotify etc  -->
     <div class="border w-full grid grid-cols-3 gap-6 justify-around content-between">
       <!-- podcasts icon -->
-      <div class="border justify-center flex-row flex">
-        <a href="https://podcasts.apple.com/us/podcast/criminal/id809264944?mt=2" target="none">
-          <span data-v-5dbac560="" class="w-10 h-10 flex inline-flex bg-black justify-center items-center">
-            <svg class="w-6 h-6 fill-current text-white bg-black" width="27" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.97 161.62">
+      <div class="items-center justify-center flex-col flex">
+        <a class="hover:bg-transparent hover:text-black" href="https://podcasts.apple.com/us/podcast/criminal/id809264944?mt=2" target="none">
+          <span data-v-5dbac560="" class="w-10 h-10 flex inline-flex bg-black justify-center items-center hover:bg-transparent">
+            <svg class="w-6 h-6 fill-current text-white bg-black hover:bg-transparent hover:text-black" width="27" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.97 161.62">
               <path fill="currentColor" d="M91,118.77c-.54,6.41-1.58,14.95-2.93,23.65a89.89,89.89,0,0,1-2.45,11.93c-1.16,3.88-5.46,7.27-12.2,7.27s-11-3.4-12.2-7.27a90.58,90.58,0,0,1-2.45-11.93c-1.35-8.71-2.39-17.25-2.93-23.65-.57-6.72-.87-10.93-.34-15.81a9.62,9.62,0,0,1,2.77-6c3.14-3.31,8.64-5.43,15.15-5.43s12,2.13,15.15,5.43a9.58,9.58,0,0,1,2.78,6C91.9,107.85,91.61,112.06,91,118.77ZM46.25,102.54a3,3,0,0,1,1,2.39,68.67,68.67,0,0,0,.08,8.4,1,1,0,0,1-1.5.86,49.23,49.23,0,1,1,55.41,0,1,1,0,0,1-1.51-.86,72.44,72.44,0,0,0,.08-8.39,3.07,3.07,0,0,1,1-2.39,39.83,39.83,0,1,0-54.49,0Zm44.34-35A17.11,17.11,0,1,1,73.48,50.38,17.1,17.1,0,0,1,90.59,67.49Zm7.22,75.33a1,1,0,0,1-1.31-1.07c.38-2.51.74-5,1.06-7.52a2.51,2.51,0,0,1,1.48-2,64.08,64.08,0,1,0-51.13,0,2.51,2.51,0,0,1,1.48,2c.33,2.49.68,5,1.06,7.53a1,1,0,0,1-1.31,1.07,73.5,73.5,0,1,1,48.65,0Z">
               </path>
             </svg>
           </span>
         </a>
+        <p>Apple Podcasts</p>
       </div>
       
       <!-- shopify icon -->

@@ -10,6 +10,7 @@ module.exports = {
       green: colors.emerald,
       white: colors.white,
       black: colors.black,
+      transparent: 'transparent',
     },
     fontFamily: {
       sans: ['Nunito', 'sans-serif'],
@@ -41,6 +42,9 @@ module.exports = {
         'height': 'height',
         'spacing': 'margin, padding',
       },
+      backgroundImage: theme => ({
+        'error': "url('resources/assets/images/error.png')",
+       })
     },
   },
   variants: {
@@ -48,6 +52,7 @@ module.exports = {
       borderColor: ['focus-visible'],
       opacity: ['disabled'],
       fontWeight: ['hover', 'focus'],
+      backgroundColor: ['hover', 'focus'],
     }
   },
   plugins: [],

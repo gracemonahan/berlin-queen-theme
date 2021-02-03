@@ -9,13 +9,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,800;1,400;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-@font-face {
-  font-family: "Didot";
-  font-weight: normal;
-  font-style: normal;
-  src: url("./fonts/didot.woff") format("WOFF");
-}
-
 /**
 * This injects all of Tailwind's utility classes, generated based on your
 * config file.
@@ -24,9 +17,12 @@
 
 @layer base {
   h1 {
-    @apply text-6xl tracking-wider uppercase font-extrabold font-brand;
+    @apply text-xl pb-3 lg:text-6xl tracking-wider uppercase font-extrabold font-brand;
   }
   h2 {
     @apply text-xl;
+  }
+  h5 {
+    @apply text-lg md:text-xl font-sans
   }
 }

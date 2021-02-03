@@ -1,6 +1,6 @@
 <header class="banner">
   <!-- responsive hamburger navbar. -->
-  <nav class="w-full flex flex-wrap items-center justify-between p-5 tracking-wider bg-black text-white fixed shadow-xl">      
+  <nav class="nav w-full flex flex-wrap items-center justify-between p-5 tracking-wider bg-black text-white fixed shadow-xl">      
     <!-- this site title without microphone logo is only visible on smaller devices -->
     <div class="font-extrabold text-xs md:hidden">{{ $siteName }}</div>
     <!-- this site title & microphone logo are visible after the medium breakpoint -->
@@ -27,11 +27,24 @@
 
   <!-- JS for toggling the dropdown menu on mobile -->
   <script>
+    // for the nav hamburger icon
     document.getElementById("hamburger").onclick = function toggleMenu() {
       const navToggle = document.getElementsByClassName("toggle");
       for (let i = 0; i < navToggle.length; i++) {
         navToggle.item(i).classList.toggle("hidden");
       }
     };
+
+    // to change the navbar color on scroll
+    var a = $(".nav").offset().top;
+
+    $(document).scroll(function(){
+        if($(this).scrollTop() > a)
+        {   
+          $('.nav').css({"background":"red"});
+        } else {
+          $('.nav').css({"background":"transparent"});
+        }
+    });
   </script>
 </header>
