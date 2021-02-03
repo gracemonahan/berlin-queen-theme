@@ -1,20 +1,20 @@
 <p align="center">
-  <a href="https://roots.io/sage/">
-    <img alt="Sage" src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="100">
+  <a href="https://roots.io/bedrock/">
+    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
   </a>
 </p>
 
 <p align="center">
   <a href="LICENSE.md">
-    <img alt="MIT License" src="https://img.shields.io/github/license/roots/sage?color=%23525ddc&style=flat-square" />
+    <img alt="MIT License" src="https://img.shields.io/github/license/roots/bedrock?color=%23525ddc&style=flat-square" />
   </a>
 
-  <a href="https://packagist.org/packages/roots/sage">
-    <img alt="Packagist" src="https://img.shields.io/packagist/v/roots/sage.svg?style=flat-square" />
+  <a href="https://packagist.org/packages/roots/bedrock">
+    <img alt="Packagist" src="https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square" />
   </a>
 
-  <a href="https://circleci.com/gh/roots/sage">
-    <img alt="Build Status" src="https://img.shields.io/circleci/build/gh/roots/sage?style=flat-square" />
+  <a href="https://circleci.com/gh/roots/bedrock">
+    <img alt="Build Status" src="https://img.shields.io/circleci/build/gh/roots/bedrock?style=flat-square" />
   </a>
 
   <a href="https://twitter.com/rootswp">
@@ -23,140 +23,86 @@
 </p>
 
 <p align="center">
-  <strong>WordPress starter theme with a modern development workflow</strong>
+  <strong>A modern WordPress stack</strong>
   <br />
   Built with ❤️
 </p>
 
 <p align="center">
-  <a href="https://roots.io">Official Website</a> | <a href="https://roots.io/docs/sage/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
+  <a href="https://roots.io">Official Website</a> | <a href="https://roots.io/docs/bedrock/master/installation/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
 </p>
 
 ## Supporting
 
-**Sage** is an open source project and completely free to use.
+**Bedrock** is an open source project and completely free to use.
 
 However, the amount of effort needed to maintain and develop new features and products within the Roots ecosystem is not sustainable without proper financial backing. If you have the capability, please consider donating using the links below:
 
 <div align="center">
 
-[![Sponsor on GitHub](https://img.shields.io/static/v1?label=sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/roots)
-[![Sponsor on Patreon](https://img.shields.io/badge/sponsor-patreon-orange.svg?style=flat-square&logo=patreon")](https://www.patreon.com/rootsdev)
+[![Donate via Patreon](https://img.shields.io/badge/donate-patreon-orange.svg?style=flat-square&logo=patreon")](https://www.patreon.com/rootsdev)
 [![Donate via PayPal](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square&logo=paypal)](https://www.paypal.me/rootsdev)
 
 </div>
 
-## About Sage
+## Overview
 
-Sage is a productivity-driven WordPress starter theme with a modern development workflow.
+Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
 
-**The `master` branch currently tracks Sage 10 which is in active development. Looking for Sage 9? [See releases](https://github.com/roots/sage/releases).**
+Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
 
 ## Features
 
-- Harness the power of [Laravel](https://laravel.com) and its available packages thanks to [Acorn](https://github.com/roots/acorn).
-- Clean, efficient theme templating utilizing [Laravel Blade](https://laravel.com/docs/latest/blade).
-- Easy [Browsersync](http://www.browsersync.io/) support alongside asset compilation, concatenating, and minification powered by [Laravel Mix](https://github.com/JeffreyWay/laravel-mix).
-- Out of the box support for [Bootstrap 5](https://getbootstrap.com/) and [jQuery](https://jquery.com).
-- A clean starting point for theme styles using [Sass](https://sass-lang.com/).
-
-See a working example at [roots-example-project.com](https://roots-example-project.com/).
+- Better folder structure
+- Dependency management with [Composer](https://getcomposer.org)
+- Easy WordPress configuration with environment specific files
+- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
+- Autoloader for mu-plugins (use regular plugins as mu-plugins)
+- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
 ## Requirements
 
-Make sure all dependencies have been installed before moving on:
+- PHP >= 7.1
+- Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
-- [WordPress](https://wordpress.org/) >= 5.4
-- [PHP](https://secure.php.net/manual/en/install.php) >= 7.2.5 (with [`php-mbstring`](https://secure.php.net/manual/en/book.mbstring.php) enabled)
-- [Composer](https://getcomposer.org/download/)
-- [Node.js](http://nodejs.org/) >= 12.0.0
-- [Yarn](https://yarnpkg.com/en/docs/install)
+## Installation
 
-## Theme installation
+1. Create a new project:
+   ```sh
+   $ composer create-project roots/bedrock
+   ```
+2. Update environment variables in the `.env` file. Wrap values that may contain non-alphanumeric characters with quotes, or they may be incorrectly parsed.
 
-Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
+- Database variables
+  - `DB_NAME` - Database name
+  - `DB_USER` - Database user
+  - `DB_PASSWORD` - Database password
+  - `DB_HOST` - Database host
+  - Optionally, you can define `DATABASE_URL` for using a DSN instead of using the variables above (e.g. `mysql://user:password@127.0.0.1:3306/db_name`)
+- `WP_ENV` - Set to environment (`development`, `staging`, `production`)
+- `WP_HOME` - Full URL to WordPress home (https://example.com)
+- `WP_SITEURL` - Full URL to WordPress including subdirectory (https://example.com/wp)
+- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
+  - Generate with [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command)
+  - Generate with [our WordPress salts generator](https://roots.io/salts.html)
 
-```sh
-# @ app/themes/ or wp-content/themes/
-$ composer create-project roots/sage your-theme-name
-```
-
-To install the latest development version of Sage, add `dev-master` to the end of the command:
-
-```sh
-$ composer create-project roots/sage your-theme-name dev-master
-```
-
-## Theme structure
-
-```sh
-themes/your-theme-name/   # → Root of your Sage based theme
-├── app/                  # → Theme PHP
-│   ├── View/             # → View models
-│   ├── Providers/        # → Service providers
-│   ├── admin.php         # → Theme customizer setup
-│   ├── filters.php       # → Theme filters
-│   ├── helpers.php       # → Helper functions
-│   └── setup.php         # → Theme setup
-├── config/               # → Config files
-│   ├── app.php           # → Application configuration
-│   ├── assets.php        # → Asset configuration
-│   ├── filesystems.php   # → Filesystems configuration
-│   ├── logging.php       # → Logging configuration
-│   └── view.php          # → View configuration
-├── composer.json         # → Autoloading for `app/` files
-├── composer.lock         # → Composer lock file (never edit)
-├── dist/                 # → Built theme assets (never edit)
-├── functions.php         # → Theme bootloader
-├── index.php             # → Theme template wrapper
-├── node_modules/         # → Node.js packages (never edit)
-├── package.json          # → Node.js dependencies and scripts
-├── resources/            # → Theme assets and templates
-│   ├── assets/           # → Front-end assets
-│   │   ├── fonts/        # → Theme fonts
-│   │   ├── images/       # → Theme images
-│   │   ├── scripts/      # → Theme javascript
-│   │   └── styles/       # → Theme stylesheets
-│   └── views/            # → Theme templates
-│       ├── components/   # → Component templates
-│       ├── form/         # → Form templates
-│       ├── layouts/      # → Base templates
-│       └── partials/     # → Partial templates
-├── screenshot.png        # → Theme screenshot for WP admin
-├── storage/              # → Storage location for cache (never edit)
-├── style.css             # → Theme meta information
-├── vendor/               # → Composer packages (never edit)
-└── webpack.mix.js        # → Laravel Mix configuration
-```
-
-## Theme setup
-
-Edit `app/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, and sidebars.
-
-## Theme development
-
-- Run `yarn` from the theme directory to install dependencies
-- Update `webpack.mix.js` with your local dev URL
-
-### Build commands
-
-- `yarn start` — Compile assets when file changes are made, start Browsersync session
-- `yarn build` — Compile and optimize the files in your assets directory
-- `yarn build:production` — Compile assets for production
+3. Add theme(s) in `web/app/themes/` as you would for a normal WordPress site
+4. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
+5. Access WordPress admin at `https://example.com/wp/wp-admin/`
 
 ## Documentation
 
-- [Sage documentation](https://roots.io/sage/docs/)
+Bedrock documentation is available at [https://roots.io/docs/bedrock/master/installation/](https://roots.io/docs/bedrock/master/installation/).
 
 ## Contributing
 
 Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
 
-## Sage sponsors
+## Bedrock sponsors
 
-Help support our open-source development efforts by [becoming a sponsor](https://github.com/sponsors/roots).
+Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
 
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a> <a href="https://icons8.com/"><img src="https://cdn.roots.io/app/uploads/icons8.svg" alt="Icons8" width="200" height="150"></a> <a href="https://www.harnessup.com/"><img src="https://cdn.roots.io/app/uploads/harness-software.svg" alt="Harness Software" width="200" height="150"></a>
+<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a>
 
 ## Community
 
